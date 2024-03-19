@@ -6,7 +6,7 @@ from sqlalchemy.orm import relationship
 
 
 class User(BaseModel, Base):
-    """This class defines a user by various attributes"""
+    """Class to absrtract the User"""
     __tablename__ = "users"
 
     email = Column(String(128), nullable=False)
