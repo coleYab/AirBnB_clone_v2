@@ -4,6 +4,7 @@ from sqlalchemy.orm import declarative_base
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Table, String, Integer, Float, ForeignKey
 from sqlalchemy.orm import relationship
+from models.amenity import Amenity
 from os import getenv
 import shlex
 import models
