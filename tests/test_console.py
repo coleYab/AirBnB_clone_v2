@@ -44,26 +44,21 @@ class TestHBNBCommand(unittest.TestCase):
     @unittest.skipIf(type(models.storage) == DBStorage, "Testing DBstorage")
     def test_create(self):
         with patch("sys.stdout", new=StringIO()) as test:
-            self.HBNB.onecmd("create BaseMOdel")
-            new_bm = test.getvalue().strip()
-        with patch("sys.stdout", new=StringIO()) as test:
-            self.HBNB.onecmd("create State")
+            self.HBNB.onecmd('create State name="California"')
             new_state = test.getvalue().strip()
         with patch("sys.stdout", new=StringIO()) as test:
-            self.HBNB.onecmd("create User")
-            new_user = test.getvalue().strip()
-        with patch("sys.stdout", new=StringIO()) as test:
-            self.HBNB.onecmd("create City")
+            self.HBNB.onecmd('create City state_id="{}" name="San_Francisco_is_super_cool"'.format(str(uuid.uuid4())))
             new_city = test.getvalue().strip()
         with patch("sys.stdout", new=StringIO()) as test:
-            self.HBNB.onecmd("create Place")
+            self.HBNB.onecmd('create User email="my@me.com" password="pwd" first_name="FN" last_name="LN"')
+            new_user = test.getvalue().strip()
+        with patch("sys.stdout", new=StringIO()) as test:
+            self.HBNB.onecmd('create Place city_id="{}" user_id="{}" name="My_house" description="no_description_yet" number_rooms=4 number_bathrooms=1 max_guest=3 price_by_night=100 latitude=120.12 longitude=101.4'.format(str(uuid.uuid4()), str(uuid.uuid4())))
             new_place = test.getvalue().strip()
         with patch("sys.stdout", new=StringIO()) as test:
-            self.HBNB.onecmd("create Review")
-            new_review = test.getvalue().strip()
-        with patch("sys.stdout", new=StringIO()) as test:
-            self.HBNB.onecmd("create Amenity")
-            new_amenity = test.getvalue().strip()
+            self.HBNB.onecmd('show Place {}'.format(new_place))
+            place_output = test.getvalue().strip()
+            self.assertIn(new_place, place_output)
 
     @unittest.skipIf(type(models.storage) == DBStorage, "Testing DBStorage")
     def test_all(self):
@@ -92,7 +87,7 @@ class TestHBNBCommand(unittest.TestCase):
     @unittest.skipIf(type(models.storage) == DBStorage, "Testing DBstorage")
     def test_create_kwargs(self):
         with patch("sys.stdout", new=StringIO()) as test:
-            self.HBNB.onecmd('create User first_name="John" email="john@example.com password="1234"')
+            self.HBNB.onecmd('create User first_name="FN" email="my@me.com" password="pwd"')
             new_user = test.getvalue().strip()
         with patch("sys.stdout", new=StringIO()) as test:
             self.HBNB.onecmd("all User")
