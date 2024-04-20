@@ -14,7 +14,7 @@ def hello_hbnb():
     hello_hbnb: runs hbnb at the root
     args: none
     """
-    return "Hello HBNB!"
+    return "<p>Hello HBNB!<p>"
 
 
 if __name__ == '__main__':
