@@ -8,7 +8,6 @@ from markupsafe import escape
 app = Flask(__name__)
 
 
-
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
     """
@@ -19,7 +18,7 @@ def hello_hbnb():
 
 
 @app.route('/hbnb', strict_slashes=False)
-def hello_hbnb():
+def hbnb():
     """
     hello_hbnb: runs hbnb at the root
     args: none
@@ -28,7 +27,7 @@ def hello_hbnb():
 
 
 @app.route('/c/<text>', strict_slashes=False)
-def hello_hbnb(text: str):
+def c_is(text: str):
     """
     hello_hbnb: runs hbnb at the root
     args: none
