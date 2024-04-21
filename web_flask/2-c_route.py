@@ -32,7 +32,7 @@ def c_is(text: str):
     hello_hbnb: runs hbnb at the root
     args: none
     """
-    return f'c {escape(text).replace('_', ' ')}'
+    return f'c {escape(text.replace('_', ' '))}'
 
 
 if __name__ == '__main__':
