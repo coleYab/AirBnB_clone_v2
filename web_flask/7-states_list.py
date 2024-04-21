@@ -84,9 +84,9 @@ def route_states():
     route_states: displays all the available states
     """
     states_list = storage.all('State')
-    states_list = list(states_list)
-    sorted_list = sorted(states_list, key=lambda x:x.name)
-    return render_template('7-states_list.html', sorted_list)
+    states_list = states_list.values()
+    states_list = sorted(states_list, key=lambda x:x.name)
+    return render_template('7-states_list.html', states=states_list)
 
 
 @app.teardown_appcontext
