@@ -7,7 +7,7 @@
         <h1>States</h1>
         <ul>
             {% for cities in states %}
-            <li> {{ cities }} </li>
+            <li> {{ cities.id }} <b> {{ cities.name }} </b> </li>
             {% endfor %}
         </ul>
     </body>
