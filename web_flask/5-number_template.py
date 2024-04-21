@@ -46,7 +46,7 @@ def python_is(text="is_cool"):
 
 
 @app.route('/number/<int:number>', strict_slashes=False)
-def number(number):
+def display_number(number):
     """
     hello_hbnb: runs hbnb at the root
     args: none
@@ -55,7 +55,7 @@ def number(number):
 
 
 @app.route('/number_template/<int:number>', strict_slashes=False)
-def number(number):
+def display_number_(number):
     """
     hello_hbnb: runs hbnb at the root
     args: none
