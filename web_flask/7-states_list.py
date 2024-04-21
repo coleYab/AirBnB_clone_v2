@@ -85,7 +85,7 @@ def route_states():
     """
     states_list = storage.all('State')
     states_list = states_list.values()
-    states_list = sorted(states_list, key=lambda x:x.name)
+    states_list = sorted(states_list, key=lambda x: x.name)
     return render_template('7-states_list.html', states=states_list)
 
 
