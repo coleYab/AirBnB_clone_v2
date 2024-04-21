@@ -4,7 +4,6 @@
 runs: hbnb
 """
 from flask import Flask
-
 app = Flask(__name__)
 
 
@@ -14,11 +13,11 @@ def hello_hbnb():
     hello_hbnb: runs hbnb at the root
     args: none
     """
-    return "<p>Hello HBNB!<p>"
+    return 'Hello HBNB!'
 
 
 if __name__ == '__main__':
     """
     runs the applications
     """
-    app.run(host='0.0.0.0:5000')
+    app.run(host='0.0.0.0', port=5000)
